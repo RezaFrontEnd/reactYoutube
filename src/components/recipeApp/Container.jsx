@@ -1,6 +1,6 @@
 
 export default function Container({children}) {
   return (
-   <>{children}</>
+   <div className="flex">{children}</div>
   );
 }
