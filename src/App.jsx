@@ -16,14 +16,26 @@ import { useState } from "react";
 import SearchFood from "./components/recipeApp/SearchFood";
 import FoodList from "./components/recipeApp/FoodList";
 import Nav from "./components/recipeApp/Nav";
+import Container from './components/recipeApp/Container';
+import InnerContainer from './components/recipeApp/InnerContainer';
+import FoodDetail from './components/recipeApp/FoodDetail';
+
 
 function App() {
   const [foodData,setFoodData] = useState([])
+  const [foodId,setFoodId] = useState("")
   return (
   <>
      <Nav></Nav>
      <SearchFood foodData={foodData} setFoodData={setFoodData}/>
-     <FoodList foodData={foodData}/>
+     <Container>
+         <InnerContainer>
+            <FoodList setFoodId={setFoodId} foodData={foodData} />
+         </InnerContainer>
+         <InnerContainer>
+            <FoodDetail foodId = {foodId}  />
+         </InnerContainer>
+     </Container>
      
   </>
   )
