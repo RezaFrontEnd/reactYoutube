@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* @theme { 
+  --breakpoint-sm:480px;
+  --breakpoint-md:768px;   
+  --breakpoint-lg:976px;   
+  --breakpoint-xl:1440px;   
+  --color-vuejs-100: #49e659;
+  --color-vuejs-932: #434252;
+  --spacing-1:100px;
+  --text-base:2rem;
+  --text-sm:12px;
+  --text-xs:15px;
+
+} */
+ @layer base{
+    body{
+        font-family:sans-serif;
+        
+    }
+} 
