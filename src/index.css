@@ -1,21 +1,57 @@
 @import "tailwindcss";
 
-/* @theme { 
-  --breakpoint-sm:480px;
-  --breakpoint-md:768px;   
-  --breakpoint-lg:976px;   
-  --breakpoint-xl:1440px;   
-  --color-vuejs-100: #49e659;
-  --color-vuejs-932: #434252;
-  --spacing-1:100px;
-  --text-base:2rem;
-  --text-sm:12px;
-  --text-xs:15px;
 
-} */
- @layer base{
-    body{
-        font-family:sans-serif;
-        
-    }
-} 
+.recipeCard
+{
+  @apply max-w-[600px] mx-auto my-[20px] p-[20px] 
+    shadow-[0px_4px_8px_rgba(0,0,0,.5)] rounded-[10px] font-[Polysans,sans-serif]
+    text-[#393e46] 
+}
+.recipeName
+{
+  @apply text-[24px] mb-[10px] text-center 
+}
+.recipeImage
+{
+  @apply max-w-[100%] h-auto rounded-[5px] mb-[10px]
+}
+.recipeList{
+  @apply text-[24px] mb-[10px] ml-[0px]
+}
+.recipeItems{
+  @apply flex items-center gap-4
+}
+.instructions
+{
+  @apply p-[0px] rounded-[5px] text-[#adaab0] mx-[10px] 
+}
+.searchFoodContainer
+{
+  @apply mx-auto my-[20px] w-[300px] relative 
+}
+.searchInput{
+  @apply border-b border-solid border-[#e3e4dc] px-[20px] py-[10px] w-full 
+            outline-none text-[16px] text-[#393e46]
+}
+.foodItemContainer{
+  @apply w-[300px] rounded-[8px] shadow-[0_4px_6px_rgba(0,0,0,.5)] m-[20px] overflow-hidden
+    font-[Polysans,sans-serif]
+}
+.foodItemDiv2{
+  @apply font-[Arial,Helvetica,sans-serif] text-center
+}
+.foodItemsTitle{
+  @apply font-[1em] font-semibold
+}
+.foodItemsDiv3
+{
+  @apply mb-[15px] flex justify-around text-center mt-3
+}
+.nav{
+  @apply text-[2em] font-[Arial,Helvetica,sans-serif] font-bold text-[#393e46] 
+    p-[30px] shadow-[0px_0px_10px_rgba(0,0,0,.5)]
+}
+
+
+
+
