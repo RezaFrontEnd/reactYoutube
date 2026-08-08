@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 
 export default function FoodDetail({ foodId }) {
-  const [food, setFood] = useState({});
+  const [food, setFood] = useState(null);
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
   useEffect(() => {
+   
     if (!foodId) return;
     async function fetchFood() {
       const res = await fetch(`${url}`);
@@ -13,38 +15,17 @@ export default function FoodDetail({ foodId }) {
     }
     fetchFood();
   }, [foodId]);
+  if(!food){
+    return null
+  }
   return (
-    <>
-      {foodId}<br/>
-      {food.strMeal} <br />
-      <img src={food.strMealThumb} /> <br />
-      {food.strArea} <br />
-      {food.strCategory} <br />
-      {food.strIngredient1} <br />
-      {food.strMeasure1}<br/>
-      {food.strIngredient2} <br />
-      {food.strMeasure2}<br/>
-      {food.strIngredient3} <br />
-      {food.strMeasure3}<br/>
-      {food.strIngredient4} <br />
-       {food.strMeasure4}<br/>
-      {food.strIngredient5} <br />
-      {food.strMeasure5}<br/>
-      {food.strIngredient6} <br />
-      {food.strMeasure6}<br/>
-      {food.strIngredient7} <br />
-      {food.strMeasure7}<br/>
-      {food.strIngredient8} <br />
-      {food.strMeasure8}<br/>
-      {food.strInstructions}<br/>
-      
-      
-      
-     
-    
-      
-      
-      
-    </>
+    <div className="recipeCard">
+      <h1 className="recipeName">{food.strMeal}</h1><br />
+      <img src={food.strMealThumb} className="recipeImage" /> <br />
+      <p><strong>{food.strArea}</strong></p>
+      <ItemList food={food}/>
+      <p><strong>{food.strCategory}</strong></p>
+      <p className="instructions"><strong>{food.strInstructions}</strong></p>
+    </div>
   );
 }
