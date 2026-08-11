@@ -18,27 +18,37 @@
 // import Container from './components/recipeApp/Container';
 // import InnerContainer from './components/recipeApp/InnerContainer';
 // import FoodDetail from './components/recipeApp/FoodDetail';
-import { createContext, useReducer, useState } from "react";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
-import HomePage from "./pages/Homepage";
-import Dashboard from "./pages/Dashboard";
-import PageNotFound from "./pages/PageNotFound";
-import UseReducer from "./components/UseReducer";
-import Profile from "./pages/Profile";
-import Settings from "./components/Settings";
-import Product from './pages/Product';
+// import { createContext, useReducer, useState } from "react";
+// import { BrowserRouter,Routes,Route } from "react-router-dom";
+// import HomePage from "./pages/Homepage";
+// import Dashboard from "./pages/Dashboard";
+// import PageNotFound from "./pages/PageNotFound";
+// import UseReducer from "./components/UseReducer";
+// import Profile from "./pages/Profile";
+// import Settings from "./components/Settings";
+// import Product from './pages/Product';
 import Checkout from "./components/Checkout";
-export const userContext = createContext()
-
+import { createContext, useState } from "react";
+import Login from "./components/login";
+import { UserProvider } from "./context/UserContext";
+import Logout from "./components/Logout";
 
 function App() {
-  return(
-  <>
-  <userContext.Provider value="guest">
-      <Checkout/>
-  </userContext.Provider> 
- 
-  {/* <BrowserRouter>
+  return (
+      <div>
+        <UserProvider>
+          <Login />
+          <Checkout />
+         
+        </UserProvider>
+      </div>
+  )
+}
+
+export default App;
+
+{
+  /* <BrowserRouter>
       <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/products/:id" element={<Product/>} />
@@ -48,12 +58,5 @@ function App() {
            </Route>
           <Route path="*" element={<PageNotFound/>}/>
       </Routes>
-  </BrowserRouter> */}
-  
-     
-  </>
-
-  )
+  </BrowserRouter> */
 }
-
-export default App;
