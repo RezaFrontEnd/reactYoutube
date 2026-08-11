@@ -1,12 +1,9 @@
 import { createContext, useContext } from "react"
-import { userContext } from "../App"
-
+import { UserContext } from "../context/UserContext"
 
 export default function Checkout(){
-   const value = useContext(userContext)
+    const {user} = useContext(UserContext)
     return(
-        <div>
-            checkout as {value}
-        </div>
+       <div className="text-black">checkout as {user}</div>
     )
 }
