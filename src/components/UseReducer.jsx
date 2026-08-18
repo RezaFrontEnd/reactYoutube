@@ -4,25 +4,34 @@ export default function UseReducer()
 {
     function reducer(state,action)
     {
-        if(action.type == "add")
+        if(action.type == "increment") 
+        {
+            return{...state,count:state.count + state.IncrementBy}
+        }
+        if(action.type == "decrement") 
+        {
+            return{...state,count:state.count - state.IncrementBy}
+        }
+        if(action.type == "setIncrementBy")
             {
-                return{...state,balance:state.balance + action.payload}
-            }  
-        if(action.type == "sub")
-            {
-                return{...state,balance:state.balance - action.payload}
-            }          
+                 return{...state,IncrementBy:action.payload}
+            }
+        
     }
-    const [state,dispatch] = useReducer(reducer,{balance:0})
-    const [amount,setAmount] = useState(0)
-    return(
+    const [state,dispatch] = useReducer(reducer,{count:0,IncrementBy:1})
+    const [cont,setCount] = useState(0)
+   return(
         <div>
-            {state.balance}
-           <input type="text" value={amount} onChange={(e)=>setAmount(e.target.value)}
-           className="border-1 rounded-4" />  
-           <button onClick={()=>dispatch({type:"add",payload:Number(amount)})} className="border-1 m-[2px]">+</button>  
-           <button onClick={()=>dispatch({type:"sub",payload:Number(amount)})}className="border-1 ">-</button>  
-           
+            
+            state:{state.count}<br/>
+            <input type="text" className="border-1 rounded-lg" 
+            value={state.IncrementBy} onChange={(e)=>{dispatch({type:"setIncrementBy",payload:Number(e.target.value)})}} />
+            <button onClick={()=>dispatch({type:"increment",payload:1})}>add</button><br/>
+            <button onClick={()=>dispatch({type:"decrement",payload:1})}>decrement</button>
+
         </div>
     )
+      
 }
+   
+   

@@ -21,11 +21,11 @@ export default function Counter(){
     return(
         <>
             <h1> Count value is:{count}</h1>
-            <button onClick={increment}>increment</button>
-            <button onClick={decrement}>decrement</button>
+            <button onClick={increment} className="border border-1 border-black rounded-lg m-1">increment:</button><br/>
+            <button onClick={decrement} className="border border-1 border-black rounded-lg m-1">decrement:</button><br/>
             <h1>we are increment the value by:{incrementBy}</h1>
-            <button onClick={increaseIncreament}>incrementBy</button>
-            <button onClick={decreaseIncreament}>DecreasementBy</button>
+            <button onClick={increaseIncreament} className="border border-1 border-black rounded-lg m-1">incrementBy</button><br/>
+            <button onClick={decreaseIncreament} className="border border-1 border-black rounded-lg m-1">DecreasementBy</button><br/>
         </>
 
     )
